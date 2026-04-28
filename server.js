@@ -1,9 +1,7 @@
 import express from 'express'
 import path from 'path'
-import { config } from 'dotenv'
 import fetch from 'node-fetch'
 
-config();
 const app = express()
 
 app.use(express.static(path.join(path.dirname(''), 'public')));
