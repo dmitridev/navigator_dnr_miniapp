@@ -12,13 +12,13 @@ app.use(express.json())
 const INTENT_RULES = [
     {
         keywords: [
-            'спорт', 
-            'тренировк', 
-            'стадион', 
-            'секци', 
-            'спортзал', 
-            'йога', 
-            'бег', 
+            'спорт',
+            'тренировк',
+            'стадион',
+            'секци',
+            'спортзал',
+            'йога',
+            'бег',
             'турнир',
             'баскетбол',
             'бадминтон',
@@ -239,6 +239,9 @@ app.post('/api/chat/contact', async (req, res) => {
     });
 });
 
-app.listen(80, () => {
-    console.log("Server worked in port 80")
-})
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 3000
+    app.listen(PORT, () => {
+        console.log(`Server worked in port ${PORT}`)
+    })
+}
