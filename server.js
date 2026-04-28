@@ -178,7 +178,7 @@ function classifyQuery(query) {
 }
 
 app.post('/api/chat', async (req, res) => {
-    const { query, session_id, meta } = req.body;
+    const { query, session_id, meta } = req.query;
     if (!query) return res.status(400).json({ error: 'Поле query обязательно' });
 
     console.log(`[Chat] 📩 "${query}" | sid: ${session_id}`);
@@ -205,7 +205,7 @@ app.post('/api/chat', async (req, res) => {
 });
 
 app.get('/api/chat', async (req, res) => {
-    const { query, session_id, meta } = req.body;
+    const { query, session_id, meta } = req.query;
     if (!query) return res.status(400).json({ error: 'Поле query обязательно!' });
 
     console.log(`[Chat] 📩 "${query}" | sid: ${session_id}`);
@@ -239,12 +239,11 @@ app.post('/api/chat/contact', async (req, res) => {
     });
 });
 
-module.exports = app;
-
 if (process.env.NODE_ENV !== 'production') {
-    const PORT = process.env.PORT || 3000
+    const PORT = process.env.PORT || 80
     app.listen(PORT, () => {
         console.log(`Server worked in port ${PORT}`)
     })
 }
 
+export default app;
