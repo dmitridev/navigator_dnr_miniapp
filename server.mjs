@@ -239,9 +239,12 @@ app.post('/api/chat/contact', async (req, res) => {
     });
 });
 
+module.exports = app;
+
 if (process.env.NODE_ENV !== 'production') {
     const PORT = process.env.PORT || 3000
     app.listen(PORT, () => {
         console.log(`Server worked in port ${PORT}`)
     })
 }
+
