@@ -21,6 +21,7 @@
   "homepage": "https://github.com/dmitridev/navigator_dnr_miniapp#readme",
   "dependencies": {
     "dotenv": "^17.4.2",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "node-fetch": "^3.3.2"
   }
 }
